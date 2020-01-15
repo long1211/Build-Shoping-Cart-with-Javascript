@@ -60,8 +60,8 @@ for (var i = 0; i < add_cart.length; i++) {
     var price = product.getElementsByClassName("price")[0].innerText
     addItemToCart(title, price, img)
     // Khi thêm sản phẩm vào giỏ hàng thì sẽ hiển thịp modal
-    var modal = document.getElementById("myModal");
     modal.style.display = "block";
+    
     updatecart()
   })
 }
