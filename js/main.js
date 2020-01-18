@@ -35,9 +35,9 @@ for (var i = 0; i < remove_cart.length; i++) {
   })
 }
 // thay đổi số lượng
-var quality_input = document.getElementsByClassName("cart-quantity-input");
-for (var i = 0; i < quality_input.length; i++) {
-  var input = quality_input[i];
+var quantity_input = document.getElementsByClassName("cart-quantity-input");
+for (var i = 0; i < quantity_input.length; i++) {
+  var input = quantity_input[i];
   input.addEventListener("change", function (event) {
     var input = event.target
     if (isNaN(input.value) || input.value <= 0) {
@@ -59,7 +59,7 @@ for (var i = 0; i < add_cart.length; i++) {
     var title = product.getElementsByClassName("content-product-h3")[0].innerText
     var price = product.getElementsByClassName("price")[0].innerText
     addItemToCart(title, price, img)
-    // Khi thêm sản phẩm vào giỏ hàng thì sẽ hiển thịp modal
+    // Khi thêm sản phẩm vào giỏ hàng thì sẽ hiển thị modal
     modal.style.display = "block";
     
     updatecart()
@@ -111,12 +111,11 @@ function updatecart() {
   for (var i = 0; i < cart_rows.length; i++) {
     var cart_row = cart_rows[i]
     var price_item = cart_row.getElementsByClassName("cart-price ")[0]
-    var quality_item = cart_row.getElementsByClassName("cart-quantity-input")[0]
-    var price = parseFloat(price_item.innerText.replace('đ', ''))
-    var quantity = quality_item.value
-    total = total + (price * quantity)
+    var quantity_item = cart_row.getElementsByClassName("cart-quantity-input")[0]
+    var price = parseFloat(price_item.innerText)
+    var quantity = quantity_item.value
+      total = total + (price * quantity)
   }
-  total = Math.round(total * 100) / 100
   document.getElementsByClassName("cart-total-price")[0].innerText = total + 'VNĐ'
 }
 

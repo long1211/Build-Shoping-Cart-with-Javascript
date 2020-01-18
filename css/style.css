@@ -222,6 +222,7 @@ h5.modal-title {
 
 .content-product .content-product-deltals {
   display: flex;
+  justify-content: center;
   padding-top: 1rem;
 }
 
